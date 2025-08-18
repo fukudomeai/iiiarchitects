@@ -1,0 +1,41 @@
+import React, { useState } from 'react';
+import { SiteBuilder, type Profile, type Work } from './components/SiteBuilder';
+import { SitePreview } from './components/SitePreview';
+import { IIIArchitectsPage } from './components/IIIArchitectsPage';
+
+export default function App() {
+  const [currentView, setCurrentView] = useState<'builder' | 'preview' | 'iii-architects'>('iii-architects');
+  const [previewData, setPreviewData] = useState<{
+    profile: Profile;
+    works: Work[];
+  } | null>(null);
+
+  const handlePreview = (profile: Profile, works: Work[]) => {
+    setPreviewData({ profile, works });
+    setCurrentView('preview');
+  };
+
+  const handleBackToBuilder = () => {
+    setCurrentView('builder');
+  };
+
+  const handleBackToIIIArchitects = () => {
+    setCurrentView('iii-architects');
+  };
+
+  if (currentView === 'preview' && previewData) {
+    return (
+      <SitePreview
+        profile={previewData.profile}
+        works={previewData.works}
+        onBack={handleBackToBuilder}
+      />
+    );
+  }
+
+  if (currentView === 'iii-architects') {
+    return <IIIArchitectsPage onBack={handleBackToBuilder} />;
+  }
+
+  return <SiteBuilder onPreview={handlePreview} onShowIIIArchitects={() => setCurrentView('iii-architects')} />;
+}
