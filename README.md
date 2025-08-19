@@ -5,7 +5,8 @@
 ## 必要な画像ファイル一覧
 
 ### ロゴ・ブランディング
-- `iii-architects-logo.png` - iii architectsのロゴ
+- `iii-architects-logo.png` - iii architectsのロゴ![Uploading iiiロゴ.png…]()
+
 
 ### プロジェクト画像
 - `cafe-interior.png` - itinerant tea room
