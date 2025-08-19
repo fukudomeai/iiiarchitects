@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iii architects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="header-container">
+            <!-- デスクトップレイアウト -->
+            <div class="header-desktop">
+                <!-- 左側: iii architects -->
+                <button class="logo-section" onclick="showView('works')">
+                    <img src="assets/iii-architects-logo.png" alt="iii architects" class="logo">
+                    <span class="logo-text">iii architects</span>
+                </button>
 
+                <!-- 右側: ナビゲーション -->
+                <div class="nav-section">
+                    <nav class="nav-desktop">
+                        <button onclick="showView('about')" class="nav-item" data-view="about">About</button>
+                        <button onclick="showView('works')" class="nav-item active" data-view="works">Works</button>
+                        <button onclick="showView('paper')" class="nav-item" data-view="paper">Paper</button>
+                        <button onclick="showView('news')" class="nav-item" data-view="news">News</button>
+                        <button onclick="showView('contact')" class="nav-item" data-view="contact">Contact</button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- モバイルレイアウト -->
+            <div class="header-mobile">
+                <!-- 上段: iii architects -->
+                <div class="mobile-top">
+                    <button class="logo-section-mobile" onclick="showView('works')">
+                        <img src="assets/iii-architects-logo.png" alt="iii architects" class="logo-mobile">
+                        <span class="logo-text-mobile">iii architects</span>
+                    </button>
+                </div>
+
+                <!-- 下段: ナビゲーション -->
+                <nav class="nav-mobile">
+                    <button onclick="showView('works')" class="nav-item-mobile active" data-view="works">Works</button>
+                    <button onclick="showView('about')" class="nav-item-mobile" data-view="about">About</button>
+                    <button onclick="showView('paper')" class="nav-item-mobile" data-view="paper">Paper</button>
+                    <button onclick="showView('news')" class="nav-item-mobile" data-view="news">News</button>
+                    <button onclick="showView('contact')" class="nav-item-mobile" data-view="contact">Contact</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- Works セクション -->
+        <section id="works-view" class="view active">
+            <div class="works-container">
+                <!-- プロジェクト一覧 -->
+                <div class="project" data-project="1">
+                    <div class="project-container">
+                        <div class="project-images">
+                            <div class="project-main-image">
+                                <img src="assets/cafe-interior.png" alt="itinerant tea room" class="project-img">
+                            </div>
+                            <div class="project-plan-image">
+                                <img src="assets/architectural-plan.png" alt="itinerant tea room - Plan" class="project-plan">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">itinerant tea room</h3>
+                            <p class="project-meta">Tokyo, Japan, 2021</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" data-project="2">
+                    <div class="project-container">
+                        <div class="project-images">
+                            <div class="project-main-image">
+                                <img src="assets/kuritsu-koen.png" alt="区立公園" class="project-img">
+                            </div>
+                            <div class="project-plan-image">
+                                <img src="assets/architectural-plan.png" alt="区立公園 - Plan" class="project-plan">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">区立公園</h3>
+                            <p class="project-meta">Tokyo, Japan, 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" data-project="3">
+                    <div class="project-container">
+                        <div class="project-images">
+                            <div class="project-main-image">
+                                <img src="assets/bistrot-oji.png" alt="Bistrot OJI" class="project-img">
+                            </div>
+                            <div class="project-plan-image">
+                                <img src="assets/architectural-plan.png" alt="Bistrot OJI - Plan" class="project-plan">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Bistrot OJI</h3>
+                            <p class="project-meta">Tokyo, Japan, 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" data-project="4">
+                    <div class="project-container">
+                        <div class="project-images">
+                            <div class="project-main-image">
+                                <img src="assets/bubble-garden.png" alt="bubble garden" class="project-img">
+                            </div>
+                            <div class="project-plan-image">
+                                <img src="assets/architectural-plan.png" alt="bubble garden - Plan" class="project-plan">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">bubble garden</h3>
+                            <p class="project-meta">Tokyo, Japan, 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" data-project="5">
+                    <div class="project-container">
+                        <div class="project-images">
+                            <div class="project-main-image">
+                                <img src="assets/uchinoura-house.png" alt="内之浦の家" class="project-img">
+                            </div>
+                            <div class="project-plan-image">
+                                <img src="assets/architectural-plan.png" alt="内之浦の家 - Plan" class="project-plan">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">内之浦の家</h3>
+                            <p class="project-meta">Tokyo, Japan, 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" data-project="6">
+                    <div class="project-container">
+                        <div class="project-images">
+                            <div class="project-main-image">
+                                <img src="assets/linear-village.png" alt="Linear Village" class="project-img">
+                            </div>
+                            <div class="project-plan-image">
+                                <img src="assets/architectural-plan.png" alt="Linear Village - Plan" class="project-plan">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Linear Village</h3>
+                            <p class="project-meta">Tokyo, Japan, 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" data-project="7">
+                    <div class="project-container">
+                        <div class="project-images">
+                            <div class="project-main-image">
+                                <img src="assets/sisui.png" alt="sisui" class="project-img">
+                            </div>
+                            <div class="project-plan-image">
+                                <img src="assets/architectural-plan.png" alt="sisui - Plan" class="project-plan">
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">sisui</h3>
+                            <p class="project-meta">Tokyo, Japan, 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About セクション -->
+        <section id="about-view" class="view">
+            <div class="content-container">
+                <!-- チーム写真 -->
+                <div class="team-photo">
+                    <img src="assets/team-photo.png" alt="iii architects team" class="team-img">
+                </div>
+
+                <!-- 概要文 -->
+                <div class="about-intro">
+                    <p class="about-text">
+                        iii architects は、殿前莉世・平井未央・福留愛の 3 人の建築家による共同体です。活動は大学院在籍時の2018年から始まり、世界各国への旅や絶え間ない日常会話を通して3人でひとつの物事を構築することを得意としています。<br><br>
+                        私たちが建築を設計するとき、いつも人間の活動が時間とともにどのように変化するかを具体的に想像します。建築は固定の動きや生活を強いるようなものではなく、日々変化する活動や感情を肯定するものだと思うからです。<br><br>
+                        たとえどのような用途の建物であったとしても、美学や機能性だけに焦点を当てるのではなく、その場にいる人と周りの環境と豊かな関係をとりもつような建築の設計を試みています。
+                    </p>
+                </div>
+
+                <!-- メンバー -->
+                <div class="members-section">
+                    <h3>iii architects</h3>
+                    <p class="photo-caption">写真左から</p>
+                    <div class="members-grid">
+                        <div class="member">
+                            <h4>福留 愛</h4>
+                            <p class="member-name-en">Ai Fukudome</p>
+                            <div class="member-profile">
+                                <p>1995年 鹿児島県生まれ</p>
+                                <p>2016年 国立熊本高等専門学校</p>
+                                <p>　　　  建築社会デザイン工学科卒業</p>
+                                <p>2018年 熊本大学田中智之研究室卒業</p>
+                                <p>2021年 横浜国立大学大学院 Y-GSA 修了</p>
+                                <p>2024年~ 東京藝術大学 教育研究助手</p>
+                                <p>　　　　  法政大学 非常勤講師</p>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <h4>平井 未央</h4>
+                            <p class="member-name-en">Mio Hirai</p>
+                            <div class="member-profile">
+                                <p>1995年 福井県福井市生まれ</p>
+                                <p>2018年 日本女子大学篠原聡子研究室卒業</p>
+                                <p>2020年 日本女子大学大学院</p>
+                                <p>　　　   篠原聡子研究室修了</p>
+                                <p>2020年~2025年 隈研吾建築都市設計事務所</p>
+                            </div>
+                        </div>
+                        <div class="member">
+                            <h4>殿前 莉世</h4>
+                            <p class="member-name-en">Rise Tonomae</p>
+                            <div class="member-profile">
+                                <p>1995年 沖縄県うるま市生まれ</p>
+                                <p>2018年 日本女子大学宮晶子研究室卒業</p>
+                                <p>2019年 リヒテンシュタイン国立大学留学</p>
+                                <p>2021年 東京藝術大学大学院</p>
+                                <p>　　　  中山英之研究室修了</p>
+                                <p>2022年~ 株式会社AS勤務</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 受賞歴 -->
+                <div class="awards-section">
+                    <h3>AWARD / 受賞</h3>
+                    <div class="awards-list">
+                        <div class="award-item">
+                            <div class="award-year">2024年</div>
+                            <div class="award-content">
+                                <p>知北平和公園組合合葬墓地設計業務プロポーザル 3位 共同設計：EIKA studio (iii)</p>
+                            </div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-year">2022年</div>
+                            <div class="award-content">
+                                <p>Argo Island Villa International Competition(Taiwan) 採択 (iii)</p>
+                            </div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-year">2021年</div>
+                            <div class="award-content">
+                                <p>第56回セントラル硝子国際建築設計競技 佳作 (t)</p>
+                                <p>HIROSHIMA DESIGN CHALLENGE 2021 デザインパートナー 採択 (iii)</p>
+                                <p>横浜国立大学大学院都市イノベーション学府成績優秀賞 (f)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 凡例 -->
+                <div class="legend">
+                    <p>殿前(t) 平井(h) 福留(f)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paper セクション -->
+        <section id="paper-view" class="view">
+            <div class="content-container-wide">
+                <h2>iii paper</h2>
+                
+                <!-- キービジュアル -->
+                <div class="paper-hero">
+                    <img src="assets/iii-paper.png" alt="iii paper collection" class="paper-hero-img">
+                </div>
+                
+                <!-- iii paperとは -->
+                <div class="paper-about">
+                    <h3>iii paperとは</h3>
+                    <div class="paper-description">
+                        <p>
+                            私たちの設計の活動は大きな目的を定めるものではなくそれぞれの日々の実感を共有しながら進めていくものです。その記録のために2021年1月からフリーペーパーをはじめました。
+                        </p>
+                        <p>
+                            SNSやホームページなどいつでもアクセスできる場所で消費されるのではなく、発行期間を絞った紙媒体のメディアを蓄積し、長い時間をかけて考えを束ねる日々の実践です。
+                        </p>
+                        <p class="paper-credit">企画 : iii architects</p>
+                    </div>
+                </div>
+
+                <!-- アーカイブ -->
+                <div class="paper-archive">
+                    <h3>これまでのアーカイブ</h3>
+                    <div class="archive-list">
+                        <div class="archive-item">
+                            <div class="archive-header">
+                                <h4>iii paper no.4</h4>
+                                <p class="archive-date">2021/04/23</p>
+                            </div>
+                            <div class="archive-content">
+                                <p>翻訳される食と建築言語<br><span class="author">（殿前莉世）</span></p>
+                                <p>土地のリズムと国の言葉<br><span class="author">（平井未央）</span></p>
+                                <p>体と頭で理解する国境<br><span class="author">（福留愛）</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="archive-item">
+                            <div class="archive-header">
+                                <h4>iii paper no.3</h4>
+                                <p class="archive-date">2021/03/14</p>
+                            </div>
+                            <div class="archive-content">
+                                <p>しりとりと慣習<br><span class="author">（殿前莉世）</span></p>
+                                <p>働く場所の選択という贅沢<br><span class="author">（平井未央）</span></p>
+                                <p>都市のサービスから考える建築<br><span class="author">（福留愛）</span></p>
+                            </div>
+                        </div>
+
+                        <div class="archive-item">
+                            <div class="archive-header">
+                                <h4>iii paper no.2</h4>
+                                <p class="archive-date">2021/02/23</p>
+                            </div>
+                            <div class="archive-content">
+                                <p>重なり合うノイズと環境<br><span class="author">（殿前莉世）</span></p>
+                                <p>塗ることと仕上げの意識<br><span class="author">（平井未央）</span></p>
+                                <p>航路を知る定点観測<br><span class="author">（福留愛）</span></p>
+                            </div>
+                        </div>
+
+                        <div class="archive-item">
+                            <div class="archive-header">
+                                <h4>iii paper no.1</h4>
+                                <p class="archive-date">2021/01/01</p>
+                            </div>
+                            <div class="archive-content">
+                                <p>没頭と背中を追う関係<br><span class="author">（殿前莉世）</span></p>
+                                <p>空っぽではじめること<br><span class="author">（平井未央）</span></p>
+                                <p>すごい建築<br><span class="author">（福留愛）</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 入手方法 -->
+                <div class="paper-access">
+                    <h3>入手方法</h3>
+                    <div class="access-info">
+                        <p><span class="access-label">発行日：</span>奇数月(1.3.5.7.9.11月)の3日</p>
+                        <p>印刷方法などの詳細については、発行日にiii architects公式インスタグラムからお知らせしています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News セクション -->
+        <section id="news-view" class="view">
+            <div class="content-container">
+                <h2>News</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <p class="news-date">2025.01.15</p>
+                        <h3 class="news-title">インターンを募集しています</h3>
+                        <p class="news-content">iii architectsでは建築設計に興味のある学生インターンを募集しています。実際のプロジェクトに携わりながら建築設計の実務を学べる機会です。詳細はお問い合わせください。</p>
+                    </div>
+                    
+                    <div class="news-item">
+                        <p class="news-date">2024.12.15</p>
+                        <h3 class="news-title">新プロジェクト「Bistrot OJI」が完成しました</h3>
+                        <p class="news-content">東京・王子に新しいビストロがオープン。モダンで洗練されたインテリアデザインを手がけました。</p>
+                    </div>
+                    
+                    <div class="news-item">
+                        <p class="news-date">2024.11.20</p>
+                        <h3 class="news-title">知北平和公園組合合葬墓地設計業務プロポーザルで3位入賞</h3>
+                        <p class="news-content">EIKA studioとの共同設計による提案が評価されました。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact セクション -->
+        <section id="contact-view" class="view">
+            <div class="content-container">
+                <h2>Contact</h2>
+                <div class="contact-content">
+                    <p class="contact-intro">建築設計のご相談やお問い合わせはお気軽にご連絡ください。</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <p class="contact-label">Email</p>
+                            <p>contact@iiiarchitects.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <p class="contact-label">Instagram</p>
+                            <a href="https://www.instagram.com/iii.architects/" target="_blank" class="contact-link">@iii.architects</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- プロジェクト詳細モーダル -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="" class="modal-image">
+                <div class="modal-info">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-description"></p>
+                    <div class="modal-meta">
+                        <p id="modal-location"></p>
+                        <p id="modal-year"></p>
+                        <p id="modal-type"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
