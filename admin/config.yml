@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "career"
+    label: "経歴"
+    folder: "content/about/career"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "会社名", name: "company", widget: "string" }
+      - { label: "役職", name: "position", widget: "string" }
+      - { label: "期間", name: "period", widget: "string" }
+      - { label: "説明", name: "description", widget: "text" }
+
+  - name: "awards"
+    label: "受賞"
+    folder: "content/about/awards"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "年", name: "year", widget: "string" }
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "詳細", name: "detail", widget: "text" }
