@@ -1,33 +1,201 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>制作中サイト</title>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制作中 - サイト準備中</title>
     <style>
-      body { font-family: sans-serif; text-align: center; margin-top: 100px; }
-      input { padding: 8px; font-size: 16px; }
-      button { padding: 8px 16px; margin-left: 8px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            background: #FFF3C4;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            padding: 50px 40px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .input-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        
+        input[type="password"] {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #e5e5e5;
+            font-size: 16px;
+            background: #fafafa;
+            transition: all 0.2s ease;
+            font-weight: 300;
+        }
+        
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #333;
+            background: white;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: #333;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn:hover {
+            background: #555;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .error {
+            color: #d73a49;
+            margin-top: 16px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .loading {
+            display: none;
+            color: #666;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 30px;
+                margin: 20px 10px;
+            }
+            
+            .illustration {
+                width: 100px;
+                height: 70px;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <h1>🔒 制作中サイト</h1>
-    <p>アクセスにはパスワードが必要です</p>
-    <input type="password" id="pw" placeholder="パスワードを入力">
-    <button onclick="check()">Enter</button>
+</head>
+<body>
+    <div class="container">
+
+        
+        <h1>制作中です</h1>
+        <p class="subtitle">
+            サイトを準備中です<br>
+            パスワードをお持ちの方のみご覧いただけます
+        </p>
+        
+        <div class="input-group">
+            <input type="password" id="password" placeholder="パスワード" autocomplete="off">
+        </div>
+        
+        <button class="btn" onclick="checkPassword()">
+            サイトに入る
+        </button>
+        
+        <div class="loading" id="loading">
+            確認中...
+        </div>
+        
+        <div class="error" id="error">
+            パスワードが正しくありません
+        </div>
+    </div>
 
     <script>
-      function check() {
-        // 任意のパスワードを設定（ここでは "secret123"）
-        const correctPassword = "secret123";
-        const input = document.getElementById('pw').value;
-        if (input === correctPassword) {
-          // 本物のトップページへ移動（例：/real-site/index.html）
-          window.location.href = "/real-site/index.html";
-        } else {
-          alert("パスワードが違います");
+        // ここでパスワードを設定してください
+        const CORRECT_PASSWORD = 'demo2024';
+        
+        function checkPassword() {
+            const passwordInput = document.getElementById('password');
+            const errorDiv = document.getElementById('error');
+            const loadingDiv = document.getElementById('loading');
+            const password = passwordInput.value.trim();
+            
+            // エラーメッセージを非表示
+            errorDiv.style.display = 'none';
+            
+            if (!password) {
+                showError('パスワードを入力してください');
+                return;
+            }
+            
+            // ローディング表示
+            loadingDiv.style.display = 'block';
+            
+            // 実際の認証（少し遅延を入れてリアルな感じに）
+            setTimeout(() => {
+                if (password === CORRECT_PASSWORD) {
+                    // 認証成功 - real-siteフォルダに移動
+                    window.location.href = '/real-site/';
+                } else {
+                    // 認証失敗
+                    loadingDiv.style.display = 'none';
+                    showError('パスワードが正しくありません');
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            }, 600);
         }
-      }
+        
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+        
+        // Enterキーでも認証できるように
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        
+        // ページ読み込み時にパスワード入力欄にフォーカス
+        window.addEventListener('load', function() {
+            document.getElementById('password').focus();
+        });
     </script>
-  </body>
+</body>
 </html>
 
