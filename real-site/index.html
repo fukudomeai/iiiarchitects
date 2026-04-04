@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -239,6 +241,7 @@
                             <h3 class="project-title">Seaside Villa</h3>
                             <p class="project-meta">Atami, Japan, 2024</p>
                         </div>
+                        <div id="works"></div>
                     </div>
                 </div>
             </div>
@@ -1035,5 +1038,22 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+fetch('/data/works.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('works');
+
+    data.forEach(work => {
+      const el = document.createElement('div');
+      el.innerHTML = `
+        <img src="${work.thumbnail}" style="width:100%" />
+        <h3>${work.title}</h3>
+        <p>${work.description}</p>
+      `;
+      container.appendChild(el);
+    });
+  });
+</script>
 </body>
 </html>
