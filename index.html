@@ -165,9 +165,7 @@
             
             // 実際の認証（少し遅延を入れてリアルな感じに）
             setTimeout(() => {
-                if (password === CORRECT_PASSWORD) {
-                    // 認証成功 - real-siteフォルダに移動
-                    window.location.href = '/real-site/';
+              
                 } else {
                     // 認証失敗
                     loadingDiv.style.display = 'none';
