@@ -1,3 +1,4 @@
+console.log("works動いてる");
 // プロジェクトデータ
 const projects = {
     1: {
