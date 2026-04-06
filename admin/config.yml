@@ -1,19 +1,41 @@
-backend:
-  name: git-gateway
-  branch: main
+- name: "works"
+  label: "Works"
+  folder: "content/works"
+  create: true
+  fields:
+    - { label: "タイトル", name: "title", widget: "string" }
+    - { label: "サムネイル", name: "thumbnail", widget: "image" }
+    - { label: "説明", name: "description", widget: "text" }
+    - { label: "本文", name: "body", widget: "markdown" }
 
-media_folder: "public/images/uploads"
-public_folder: "/images/uploads"
-
-collections:
-  - name: "works"
-    label: "Works"
-    folder: "content/works"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "タイトル", name: "title", widget: "string" }
-      - { label: "日付", name: "date", widget: "datetime" }
-      - { label: "サムネイル", name: "thumbnail", widget: "image" }
-      - { label: "説明", name: "description", widget: "text" }
-      - { label: "本文", name: "body", widget: "markdown" }
+- name: "about"
+  label: "About"
+  files:
+    - file: "content/about.md"
+      label: "Aboutページ"
+      fields:
+        - { label: "事務所名", name: "title", widget: "string" }
+        - { label: "説明", name: "body", widget: "markdown" }
+- name: "news"
+  label: "News"
+  folder: "content/news"
+  create: true
+  fields:
+    - { label: "タイトル", name: "title", widget: "string" }
+    - { label: "日付", name: "date", widget: "datetime" }
+    - { label: "本文", name: "body", widget: "markdown" }
+- name: "paper"
+  label: "Paper"
+  folder: "content/paper"
+  create: true
+  fields:
+    - { label: "タイトル", name: "title", widget: "string" }
+    - { label: "号数", name: "issue", widget: "string" }
+    - { label: "本文", name: "body", widget: "markdown" }
+- name: "contact"
+  label: "Contact"
+  files:
+    - file: "content/contact.md"
+      label: "Contactページ"
+      fields:
+        - { label: "メール", name: "email", widget: "string" }
