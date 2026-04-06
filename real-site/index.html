@@ -1043,30 +1043,35 @@ fetch('/data/works.json')
   .then(data => {
     const container = document.getElementById('works');
 
-    // 念のため空にする（重複防止）
     container.innerHTML = '';
 
-    data.items.forEach(work => {
+    data.items.forEach((work, index) => {
       const el = document.createElement('div');
+      el.className = 'project';
+      el.setAttribute('data-project', index + 1);
 
       el.innerHTML = `
-        <div class="project">
-          <div class="project-container">
-            <div class="project-images">
-              <div class="project-main-image">
-                <img src="${work.thumbnail}" class="project-img">
-              </div>
+        <div class="project-container">
+          <div class="project-images">
+            <div class="project-main-image">
+              <img src="${work.thumbnail}" class="project-img">
             </div>
-            <div class="project-info">
-              <h3 class="project-title">${work.title}</h3>
-              <p>${work.description}</p>
+            <div class="project-plan-image">
+              <img src="${work.plan || 'assets/architectural-plan.png'}" class="project-plan">
             </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">${work.title}</h3>
+            <p class="project-meta">${work.location || ''}, ${work.year || ''}</p>
           </div>
         </div>
       `;
 
       container.appendChild(el);
     });
+  })
+  .catch(err => {
+    console.error('JSON読み込みエラー:', err);
   });
 </script>
 </body>
