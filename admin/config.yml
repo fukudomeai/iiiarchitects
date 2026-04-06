@@ -1,16 +1,8 @@
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
 collections:
   - name: "works"
     label: "Works"
     folder: "content/works"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "サムネイル", name: "thumbnail", widget: "image" }
@@ -20,7 +12,8 @@ collections:
   - name: "about"
     label: "About"
     files:
-      - file: "content/about.md"
+      - name: "about"   # ←これ追加！！
+        file: "content/about.md"
         label: "Aboutページ"
         fields:
           - { label: "事務所名", name: "title", widget: "string" }
@@ -30,7 +23,6 @@ collections:
     label: "News"
     folder: "content/news"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "日付", name: "date", widget: "datetime" }
@@ -40,7 +32,6 @@ collections:
     label: "Paper"
     folder: "content/paper"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "号数", name: "issue", widget: "string" }
@@ -49,7 +40,8 @@ collections:
   - name: "contact"
     label: "Contact"
     files:
-      - file: "content/contact.md"
+      - name: "contact"   # ←これも追加！！
+        file: "content/contact.md"
         label: "Contactページ"
         fields:
           - { label: "メール", name: "email", widget: "string" }
