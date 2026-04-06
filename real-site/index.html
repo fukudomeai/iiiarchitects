@@ -1037,19 +1037,34 @@
         </div>
     </div>
 
-    <script>
+<script>
 fetch('/data/works.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('works');
 
-    data.forEach(work => {
+    // 念のため空にする（重複防止）
+    container.innerHTML = '';
+
+    data.items.forEach(work => {
       const el = document.createElement('div');
+
       el.innerHTML = `
-        <img src="${work.thumbnail}" style="width:100%" />
-        <h3>${work.title}</h3>
-        <p>${work.description}</p>
+        <div class="project">
+          <div class="project-container">
+            <div class="project-images">
+              <div class="project-main-image">
+                <img src="${work.thumbnail}" class="project-img">
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">${work.title}</h3>
+              <p>${work.description}</p>
+            </div>
+          </div>
+        </div>
       `;
+
       container.appendChild(el);
     });
   });
