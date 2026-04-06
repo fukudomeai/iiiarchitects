@@ -1,8 +1,10 @@
-
-[
-  {
-    "title": "テスト作品",
-    "thumbnail": "https://via.placeholder.com/400",
-    "description": "これはテストです"
-  }
-]
+{
+  "items": [
+    {
+      "title": "テスト",
+      "thumbnail": "/assets/test.jpg",
+      "location": "Tokyo",
+      "year": "2025"
+    }
+  ]
+}
