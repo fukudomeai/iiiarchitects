@@ -1,47 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
 collections:
   - name: "works"
     label: "Works"
     folder: "content/works"
     create: true
+    slug: "{{slug}}"
+    format: "json"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "サムネイル", name: "thumbnail", widget: "image" }
       - { label: "説明", name: "description", widget: "text" }
-      - { label: "本文", name: "body", widget: "markdown" }
 
   - name: "about"
     label: "About"
     files:
-      - name: "about"   # ←これ追加！！
-        file: "content/about.md"
+      - name: "about_page"
+        file: "content/about.json"
         label: "Aboutページ"
+        format: "json"
         fields:
           - { label: "事務所名", name: "title", widget: "string" }
-          - { label: "説明", name: "body", widget: "markdown" }
+          - { label: "説明", name: "body", widget: "text" }
 
   - name: "news"
     label: "News"
     folder: "content/news"
     create: true
+    slug: "{{slug}}"
+    format: "json"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "日付", name: "date", widget: "datetime" }
-      - { label: "本文", name: "body", widget: "markdown" }
+      - { label: "本文", name: "body", widget: "text" }
 
   - name: "paper"
     label: "Paper"
     folder: "content/paper"
     create: true
+    slug: "{{slug}}"
+    format: "json"
     fields:
       - { label: "タイトル", name: "title", widget: "string" }
       - { label: "号数", name: "issue", widget: "string" }
-      - { label: "本文", name: "body", widget: "markdown" }
+      - { label: "本文", name: "body", widget: "text" }
 
   - name: "contact"
     label: "Contact"
     files:
-      - name: "contact"   # ←これも追加！！
-        file: "content/contact.md"
+      - name: "contact_page"
+        file: "content/contact.json"
         label: "Contactページ"
+        format: "json"
         fields:
           - { label: "メール", name: "email", widget: "string" }
