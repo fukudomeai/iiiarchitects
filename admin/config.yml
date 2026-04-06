@@ -7,15 +7,15 @@ public_folder: "/assets/uploads"
 
 collections:
   - name: "works"
-    label: "Works"
-    folder: "content/works"
-    create: true
-    slug: "{{slug}}"
-    format: "json"
-    fields:
-      - { label: "タイトル", name: "title", widget: "string" }
-      - { label: "サムネイル", name: "thumbnail", widget: "image" }
-      - { label: "説明", name: "description", widget: "text" }
+  label: "Works"
+  file: "data/works.json"
+  format: "json"
+  fields:
+    - { label: "作品一覧", name: "items", widget: "list", fields: [
+        { label: "タイトル", name: "title", widget: "string" },
+        { label: "サムネイル", name: "thumbnail", widget: "image" },
+        { label: "説明", name: "description", widget: "text" }
+      ]}
 
   - name: "about"
     label: "About"
