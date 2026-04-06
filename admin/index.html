@@ -1,24 +1,12 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Content Manager</title>
-  </head>
-  <body>
-    <!-- Decap CMS本体を読み込む -->
-    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iii architects CMS</title>
+</head>
+<body>
+  <!-- Decap CMS（バージョン固定が重要） -->
+  <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
+</body>
 </html>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
